@@ -18,6 +18,8 @@ if [ -n "$PYNQ_UBUNTU_REPO" ]; then
   trap "rm -f $tmpfile" EXIT
 fi
 
+sudo mkdir -p $target/etc/apt/
+sudo cp ../trusted.gpg $target/etc/apt/
 # Perform the basic bootstrapping of the image
 $dry_run sudo -E multistrap -f $multistrap_conf -d $target --no-auth
 

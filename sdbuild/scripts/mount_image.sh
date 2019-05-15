@@ -18,3 +18,6 @@ sudo mount $root_part $image_dir
 sudo mount $boot_part $image_dir/boot
 
 sudo chroot / chmod a+w $image_dir
+
+#added
+sudo cp ../trusted.gpg $image_dir/etc/apt/
