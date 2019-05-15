@@ -1,0 +1,9 @@
+[Unit]
+Description=TCF agent daemon
+
+[Service]
+Type=forking
+ExecStart=/usr/local/sbin/tcf-agent -d
+
+[Install]
+WantedBy=basic.target
