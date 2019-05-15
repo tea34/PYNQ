@@ -38,6 +38,11 @@ export CCACHE_SLOPPINESS=file_macro,time_macros
 export CC=/usr/lib/ccache/gcc
 export CXX=/usr/lib/ccache/g++
 
+#add
+sudo mkdir -p /run/resolvconf/
+sudo cp /etc/resolv.conf /run/resolvconf/
+$dry_run sudo -E chroot $target ping pypi.python.org -c 1
+
 for p in $@ 
 do
   if [ -n "$PACKAGE_PATH" -a -e $PACKAGE_PATH/$p ]; then
