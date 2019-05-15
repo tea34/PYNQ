@@ -287,7 +287,7 @@ sysroot_$1 : $$(SYSROOT_$1)
 .PRECIOUS: $$(STAGE1_$1) $$(STAGE2_$2) $$(BASE_$1)
 
 qemu_check_$1:
-	$$(QEMU_$1) -version | fgrep 2.8.0
+#	$$(QEMU_$1) -version | fgrep 2.8.0
 
 .PHONY: qemu_check_$1
 

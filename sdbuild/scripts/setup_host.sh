@@ -32,7 +32,7 @@ git
 lib32z1
 lib32ncurses5
 lib32stdc++6
-libgnutls-dev
+libgnutls28-dev
 libssl-dev
 kpartx
 dosfstools
@@ -53,17 +53,19 @@ fi
 mkdir tools
 cd tools/
 
-wget http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.22.0.tar.bz2
-tar -xf crosstool-ng-1.22.0.tar.bz2
+#wget http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.22.0.tar.bz2
+#tar -xf crosstool-ng-1.22.0.tar.bz2
+git clone https://github.com/crosstool-ng/crosstool-ng
 cd crosstool-ng/
+./bootstrap
 ./configure --prefix=/opt/crosstool-ng
 make
 sudo make install
 cd ..
 
-wget http://wiki.qemu-project.org/download/qemu-2.8.0.tar.bz2
-tar -xf qemu-2.8.0.tar.bz2
-cd qemu-2.8.0
+wget http://wiki.qemu-project.org/download/qemu-3.0.0.tar.bz2
+tar -xf qemu-3.0.0.tar.bz2
+cd qemu-3.0.0
 patch -p 1 < $script_dir/qemu.patch
 ./configure --target-list=arm-linux-user,aarch64-linux-user --prefix=/opt/qemu --static
 make
