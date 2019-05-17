@@ -14,6 +14,26 @@ make install
 systemctl enable tcf.agent
 fi
 
+cd /home/xilinx
+if [ ! -d "gst-rtsp-server" ]; then
+git clone https://github.com/GStreamer/gst-rtsp-server
+#cd gst-rtsp-server
+#./autogen.sh
+#make -j4
+cd ..
+chown -R xilinx:xilinx gst-rtsp-server
+fi
+
+cd /home/xilinx
+if [ ! -d "gst-docs" ]; then
+git clone https://gitlab.freedesktop.org/gstreamer/gst-docs
+#cd gst-rtsp-server
+#./autogen.sh
+#make -j4
+cd ..
+chown -R xilinx:xilinx gst-docs
+fi
+
 exit 0
 
 cd /home/xilinx
@@ -45,18 +65,5 @@ cd gst-plugins-good
 make -j4
 cd ..
 chown -R xilinx:xilinx gst-plugins-good
-fi
-
-cd /home/xilinx
-
-rm -rf gst-rtsp-server
-
-if [ ! -d "gst-rtsp-server" ]; then
-git clone https://github.com/GStreamer/gst-rtsp-server
-cd gst-rtsp-server
-./autogen.sh
-make -j4
-cd ..
-chown -R xilinx:xilinx gst-rtsp-server
 fi
 
