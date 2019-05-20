@@ -20,7 +20,7 @@ git clone https://github.com/GStreamer/gst-rtsp-server
 #cd gst-rtsp-server
 #./autogen.sh
 #make -j4
-cd ..
+#cd ..
 chown -R xilinx:xilinx gst-rtsp-server
 fi
 
@@ -30,7 +30,7 @@ git clone https://gitlab.freedesktop.org/gstreamer/gst-docs
 #cd gst-rtsp-server
 #./autogen.sh
 #make -j4
-cd ..
+#cd ..
 chown -R xilinx:xilinx gst-docs
 fi
 
